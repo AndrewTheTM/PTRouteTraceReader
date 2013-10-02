@@ -43,7 +43,7 @@ public class TraceRunner {
 	 */
 	public static void main(String[] args) {
 		if(args.length!=3){
-			System.out.println("\n\nUSAGE: TraceRunner <line DBF> <REPORTO File>\n\n");
+			System.out.println("\n\nUSAGE: TraceRunner <line DBF> <REPORTO File> <Output DBF File>\n\n");
 			System.exit(1);
 		}
 		
