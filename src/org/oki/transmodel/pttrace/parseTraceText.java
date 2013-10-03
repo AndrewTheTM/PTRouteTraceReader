@@ -1,5 +1,6 @@
 package org.oki.transmodel.pttrace;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.concurrent.Callable;
 import java.util.regex.Matcher;
@@ -54,10 +55,27 @@ public class parseTraceText implements Callable<TraceRouteObject> {
 			for(String route:routeLists[3].split("\\s"))
 				t.Routes4.add(route);
 		
-		//TODO: At some point, maybe something a little less lame should be here
+		//FIXME: At some point, maybe something a little less lame should be here ... this is critical now!
+		
 		
 		t.Operator=(int) routeList.get(t.Routes1.get(0));
 		
 		return t;
+	}
+	
+	int getOperator(ArrayList<String> r){
+		int opCount[]=new int[1000];
+		for(String s:r)
+			opCount[(int)routeList.get(s)]++;
+		
+		int idx=0;
+		int maxC=0;
+		for(int x=0;x<1000;x++){
+			if(opCount[x]>maxC){
+				idx=x;
+				maxC=opCount[x];
+			}
+		}
+		return idx;
 	}
 }
