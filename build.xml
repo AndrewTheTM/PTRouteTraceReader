@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project Voyager PT Route Trace Reader">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="C:/Users/arohne/workspace/Voyager PT Route Trace Reader/build/PTRouteTrace.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="org.oki.transmodel.pttrace.TraceRunner"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="C:/Users/arohne/workspace/Voyager PT Route Trace Reader/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/arohne/workspace/Voyager PT Route Trace Reader/third-party/javadbf-0.4.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/arohne/workspace/Voyager PT Route Trace Reader/third-party/jdbf-1.1-all/dist/jdbf-1.1.jar"/>
+        </jar>
+    </target>
+</project>
