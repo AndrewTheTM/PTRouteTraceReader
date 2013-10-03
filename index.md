@@ -1,3 +1,7 @@
+---
+title: Cube Voyager Public Transport Route Trace Parser
+layout: default
+---
 # Cube Voyager Public Transport Route Trace Parser
 
 ## Introduction
