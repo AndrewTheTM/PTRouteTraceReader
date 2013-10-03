@@ -2,7 +2,7 @@ source:      .
 destination: ./_site
 plugins:     ./_plugins
 layouts:     ./_layouts
-include:     ['.htaccess']
+include:     []
 exclude:     []
 keep_files:  ['.git','.svn']
 timezone:    nil
