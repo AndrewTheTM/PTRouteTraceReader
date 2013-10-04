@@ -34,9 +34,9 @@ import com.linuxense.javadbf.DBFReader;
  */
 public class TraceRunner {
 
-	static ArrayList<TraceRouteObject> tro;
-	static Hashtable<String,Integer> routeList;
-	static ArrayList<ArrayList<String>> workObject;
+	public static ArrayList<TraceRouteObject> tro;
+	public static Hashtable<String,Integer> routeList;
+	public static ArrayList<ArrayList<String>> workObject;
 	
 	/**
 	 * @param args
@@ -157,7 +157,7 @@ public class TraceRunner {
 	 * @throws FileNotFoundException if the DBF file is not found
 	 * @throws DBFException if there is a different problem with the DBF
 	 */
-	static ArrayList<Object[]> readDBF(String DBFFileName, String[] inputFieldMap) throws FileNotFoundException, DBFException{
+	public static ArrayList<Object[]> readDBF(String DBFFileName, String[] inputFieldMap) throws FileNotFoundException, DBFException{
 		InputStream iStream = new FileInputStream(DBFFileName);
 		DBFReader reader=new DBFReader(iStream);
 		int numberOfFields=reader.getFieldCount();
@@ -271,6 +271,11 @@ public class TraceRunner {
 			writer.addRecord(rowData);		
 		}
 		writer.close();
+	}
+
+	public static void getOperator(ArrayList<String> s) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

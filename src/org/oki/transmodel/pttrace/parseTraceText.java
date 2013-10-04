@@ -10,11 +10,15 @@ public class parseTraceText implements Callable<TraceRouteObject> {
 
 	private String s;
 	private int c;
-	private Hashtable<String,Integer> routeList;
+	private static Hashtable<String,Integer> routeList;
 	parseTraceText(String s, int c, Hashtable<String,Integer> h){
 		this.s=s;
 		this.c=c;
-		this.routeList=h;
+		parseTraceText.routeList=h;
+	}
+	
+	public parseTraceText(Hashtable<String,Integer> h){
+		parseTraceText.routeList=h;
 	}
 	@Override
 	public TraceRouteObject call() throws Exception {
@@ -63,10 +67,16 @@ public class parseTraceText implements Callable<TraceRouteObject> {
 		return t;
 	}
 	
-	int getOperator(ArrayList<String> r){
+	/**
+	 * Gets the operator of a route name.  Returns main operator from the line input DBF table or 0 if none found.
+	 * @param r ArrayList<String> of routes to check for
+	 * @return Integer value of main operator.  0=none found, other outputs=1..999. 
+	 */
+	public static int getOperator(ArrayList<String> r){
 		int opCount[]=new int[1000];
 		for(String s:r)
-			opCount[(int)routeList.get(s)]++;
+			if(routeList.get(s)!=null)
+				opCount[(int)routeList.get(s)]++;
 		
 		int idx=0;
 		int maxC=0;
