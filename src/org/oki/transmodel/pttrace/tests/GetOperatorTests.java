@@ -86,8 +86,7 @@ public class GetOperatorTests {
 		parseTraceText ptt=new parseTraceText(routeList);
 		System.out.println("Test tank");
 		ArrayList<String>s=new ArrayList<String>();
-		s.add("Rt2XCTCIB");
-		s.add("Rt20IB");  
+		s.add("Rt2XCTCIB"); 
 		s.add("Rt3TankOB"); 
 		s.add("Rt1TankOB"); 
 		assertTrue(parseTraceText.getOperator(s)==2);
@@ -98,14 +97,11 @@ public class GetOperatorTests {
 		if(routeList==null)
 			ReadLineDBF();
 		parseTraceText ptt=new parseTraceText(routeList);
-		System.out.println("Test TANK or CTC equal");
+		System.out.println("Test CTC");
 		ArrayList<String>s=new ArrayList<String>();
 		s.add("Rt2XCTCIB");
-		s.add("Rt20IB"); 
 		s.add("Rt4XCTCIB"); 
-		s.add("Rt3TankOB"); 
-		s.add("Rt1TankOB"); 
-		assertTrue(parseTraceText.getOperator(s)==2);
+		assertTrue(parseTraceText.getOperator(s)==6);
 	}
 	
 	@Test
@@ -116,7 +112,7 @@ public class GetOperatorTests {
 		System.out.println("Test if all bad route");
 		ArrayList<String>s=new ArrayList<String>();
 		s.add("I'm bad, I'm bad, I'm really really bad");
-		s.add("I'm worse"); 
+		s.add("I'm worse");
 		assertTrue(parseTraceText.getOperator(s)==0);
 		
 	}

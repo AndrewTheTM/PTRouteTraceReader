@@ -73,19 +73,18 @@ public class parseTraceText implements Callable<TraceRouteObject> {
 	 * @return Integer value of main operator.  0=none found, other outputs=1..999. 
 	 */
 	public static int getOperator(ArrayList<String> r){
-		int opCount[]=new int[1000];
+		/*
+		 * BIG IMPORTANT NOTE
+		 * This returns the MINIMUM operator number found.  This is because in my use, Operator 1 is the
+		 * biggest and most common, Operator 2 is the second most, etc.
+		 */
+		//int opCount[]=new int[1000];
+		int minOp=9999;
 		for(String s:r)
 			if(routeList.get(s)!=null)
-				opCount[(int)routeList.get(s)]++;
-		
-		int idx=0;
-		int maxC=0;
-		for(int x=0;x<1000;x++){
-			if(opCount[x]>maxC){
-				idx=x;
-				maxC=opCount[x];
-			}
-		}
-		return idx;
+				minOp=Math.min(routeList.get(s),minOp);
+		if(minOp==9999)
+			return 0;
+		return minOp;
 	}
 }
